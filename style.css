@@ -1,0 +1,1129 @@
+/* Spremenljivke za svetlo temo (pastelne in svetle barve) */
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --table-border: #e2e8f0;
+    --table-th-bg: #f1f5f9;
+    --header-bg: #e0f2fe;
+    --header-text: #0f172a;
+    --input-bg: #ffffff;
+    --link-color: #0284c7;
+    --hover-bg: #f1f5f9;
+    --primary-light: #e0f2fe;
+    --primary-color: #0284c7;
+}
+
+/* Spremenljivke za temno temo */
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --table-border: #334155;
+    --table-th-bg: #1e293b;
+    --header-bg: #1e293b;
+    --header-text: #f8fafc;
+    --input-bg: #0f172a;
+    --link-color: #38bdf8;
+    --hover-bg: #334155;
+    --primary-light: #1e3a5f;
+    --primary-color: #38bdf8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Glava */
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    width: 100%;
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.header-left {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Navbar Logo */
+.navbar-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-logo-link:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.nav-logo {
+    height: 38px;
+    max-height: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-logo.logo-light {
+    display: block;
+}
+
+.nav-logo.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .nav-logo.logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .nav-logo.logo-dark {
+    display: block;
+}
+
+.brand {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.brand h1 {
+    font-size: 22px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.header-controls {
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.header-desktop-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-switcher {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.lang-switcher a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 2px 4px;
+    font-weight: bold;
+}
+
+.lang-switcher a.active,
+.lang-switcher a:hover {
+    color: var(--header-text);
+    text-decoration: underline;
+}
+
+.about-me-btn,
+.theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--header-text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.about-me-btn:hover,
+.theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .about-me-btn,
+[data-theme="dark"] .theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-color);
+    color: var(--header-text);
+}
+
+[data-theme="dark"] .about-me-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobilni / Dropdown meni v glavi */
+.header-menu-container {
+    position: relative;
+    display: none;
+}
+
+.header-menu-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    font-size: 17px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--header-text);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.header-menu-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.header-menu-btn:active {
+    transform: scale(0.96);
+}
+
+[data-theme="dark"] .header-menu-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-color);
+    color: var(--header-text);
+}
+
+[data-theme="dark"] .header-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.header-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 220px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: headerMenuFadeIn 0.18s ease-out;
+}
+
+.header-dropdown-menu.hidden {
+    display: none !important;
+}
+
+@keyframes headerMenuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dropdown-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    padding: 0 4px;
+}
+
+.dropdown-lang-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dropdown-lang-btn,
+.dropdown-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-main);
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-lang-btn:hover,
+.dropdown-menu-item:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-color);
+    color: var(--link-color);
+}
+
+.dropdown-lang-btn.active {
+    background: var(--hover-bg);
+    font-weight: bold;
+    border-color: var(--border-color);
+    color: var(--link-color);
+}
+
+.dropdown-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2px 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Enotni gumbi */
+button, .btn-primary, .btn-secondary, .btn-danger {
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.header-actions button {
+    min-width: 120px;
+    height: 38px;
+    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.btn-secondary {
+    background-color: #64748b;
+    color: #ffffff;
+    padding: 9px 16px;
+}
+
+.btn-secondary:hover {
+    background-color: #475569;
+}
+
+.btn-secondary.active {
+    background-color: var(--primary-color);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
+    padding: 9px 16px;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 25px 0;
+}
+
+/* Akcijska vrstica */
+.action-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+#btn-add-transaction {
+    background-color: #10b981;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px -1px rgba(16, 185, 129, 0.25);
+}
+
+#btn-add-transaction:hover {
+    background-color: #059669;
+}
+
+/* Modalno okno */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 1px solid var(--border-color);
+    max-height: 90vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.close-modal:hover {
+    color: var(--text-main);
+}
+
+/* Glavna vsebina */
+.main-content {
+    flex: 1;
+    padding: 25px 15px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-color);
+}
+
+/* Za prijavo in registracijo odstranimo zunanje glavno okno (ozadje, obrobo, senco in odmik) */
+.container:has(#auth-section:not(.hidden)),
+.container:has(.auth-card),
+body.auth-mode .container,
+.container.auth-mode {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Obrazci */
+#auth-section {
+    max-width: 460px;
+    margin: 20px auto;
+    padding: 24px 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+#auth-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-main);
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--link-color);
+}
+
+button[type="submit"], .btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 18px;
+    width: 100%;
+}
+
+button[type="submit"]:hover, .btn-primary:hover {
+    background-color: #0369a1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: none;
+}
+
+.message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+    display: block;
+}
+
+.message.success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    display: block;
+}
+
+/* 2FA / Dvostopenjska avtentikacija */
+.two-fa-box {
+    background: var(--hover-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+}
+
+.two-fa-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-size: 14.5px;
+}
+
+.two-fa-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+    line-height: 1.45;
+}
+
+.secret-key-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.secret-key-code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: var(--link-color);
+    word-break: break-all;
+    flex: 1;
+}
+
+.btn-copy-secret, .btn-regen-secret {
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-copy-secret:hover, .btn-regen-secret:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border-color: var(--link-color);
+}
+
+.two-fa-code-input {
+    text-align: center !important;
+    letter-spacing: 6px !important;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    max-width: 240px;
+    margin: 0 auto;
+    display: block;
+}
+
+.two-fa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+.two-fa-badge.active {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.two-fa-badge.inactive {
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .two-fa-badge.active {
+    background: rgba(22, 101, 52, 0.25);
+    color: #86efac;
+    border-color: #166534;
+}
+
+[data-theme="dark"] .two-fa-badge.inactive {
+    background: rgba(100, 116, 139, 0.2);
+    color: #94a3b8;
+    border-color: #334155;
+}
+
+/* Nadzorna plošča */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.subtext {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* --- GLAVNA STRUKTURA Z LOČENIM STRANSKIM TRAKOM --- */
+.app-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-top: 15px;
+}
+
+/* Samostojni levi Sidebar */
+.app-sidebar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: var(--hover-bg);
+}
+
+.filter-btn.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.mobile-filter-wrapper {
+    display: none;
+}
+
+/* Izbirnik meseca na vrhu stranskega traku */
+.month-filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.month-filter-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.month-dropdown {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.month-dropdown:focus {
+    border-color: var(--link-color);
+}
+
+/* Glavni desni del */
+.app-main-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* 1. KARTICA ZGORAJ: Vodoravne metrike bančnega profila */
+.bank-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+    align-items: stretch; /* Vsi kvadratki v isti vrsti dobijo enako višino */
+}
+
+.bank-stat-box {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Razpre vsebino med vrhom in dnom */
+}
+
+.stat-highlight-box {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: auto; /* Znesek se vedno zasidra čisto na dno */
+    padding-top: 4px;
+}
+
+.text-success { color: #16a34a; }
+.text-danger { color: #dc2626; }
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.btn-icon:hover {
+    background: var(--hover-bg);
+}
+
+/* 2. KARTICA SPODAJ: Prostrana tabela */
+.card-transactions-table {
+    width: 100%;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+table, th, td {
+    border: 1px solid var(--table-border);
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--text-main);
+}
+
+th {
+    background-color: var(--table-th-bg);
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background: var(--hover-bg);
+    color: var(--text-main);
+}
+
+.badge.priliv { background: #dcfce7; color: #166534; }
+.badge.odliv { background: #fee2e2; color: #991b1b; }
+
+.trans-desc-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.trans-desc-text {
+    word-break: break-word;
+}
+
+.btn-edit-trans {
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-edit-trans:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Preklop prijava / registracija */
+.switch-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-link a {
+    color: var(--link-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* Noga & Logotip */
+.site-footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 18px 20px;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.04);
+    margin-top: auto;
+}
+
+.footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.vadnica-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.vadnica-logo:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.vadnica-logo img {
+    height: 42px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.footer-inner p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* --- MEDIJSKE POIZVEDBE (TABLICE IN MOBILNI TELEFONI) --- */
+
+/* Tablični in manjši zasloni (pod 992px) */
+@media (max-width: 992px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .desktop-filters {
+        display: none;
+    }
+
+    .mobile-filter-wrapper {
+        display: block;
+    }
+
+    .mobile-dropdown {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+        background-color: var(--input-bg);
+        color: var(--text-main);
+        cursor: pointer;
+    }
+
+    .bank-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobilni telefoni (pod 768px) */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 10px 14px;
+    }
+
+    .brand h1 {
+        font-size: 18px;
+    }
+
+    .header-desktop-controls {
+        display: none;
+    }
+
+    .header-menu-container {
+        display: block;
+    }
+
+    .bank-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vadnica-logo img {
+        height: 36px;
+    }
+}
+
+/* Zelo ozki mobilni zasloni (pod 480px) */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 8px 10px;
+    }
+
+    .brand {
+        gap: 6px;
+    }
+
+    .brand h1 {
+        font-size: 15px;
+    }
+
+    .header-menu-btn {
+        padding: 5px 8px;
+        font-size: 16px;
+    }
+
+    .header-dropdown-menu {
+        width: 200px;
+    }
+}
+
+/* Slogi za prenos transakcij iz prejšnjega meseca */
+.copy-item-row:hover {
+    background-color: var(--hover-bg) !important;
+    border-color: var(--primary-color) !important;
+}
+#btn-copy-prev-month {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#btn-copy-prev-month.hidden {
+    display: none !important;
+}
+#btn-copy-prev-month:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--primary-color);
+    color: var(--link-color);
+}

@@ -1,0 +1,7 @@
+# Konfiguracija baze podatkov z občutljivimi gesli
+db.php
+
+# PHP seje in začasne datoteke
+*.log
+.DS_Store
+Thumbs.db
