@@ -42,10 +42,10 @@ Ta projekt je licenciran pod [AGPL-3.0](LICENSE).
 
 ---
 
-Več o projektu na [vadnica.org](https://vadnica.org) 🚀
+Več o projektu na [https://vadnica.org/?lang=en](https://vadnica.org) 🚀
 
 ## Povezave / Links
 
-- **Live Demo | Živ demo:** [bank.vadnica.org](https://bank.vadnica.org)
-- **Tutorial Site | Učna stran:** [vadnica.org](https://vadnica.org)
-- **Blog | Blog:** [blog.vadnica.org](https://blog.vadnica.org)
+- **Live Demo | Živ demo:** [https://bank.vadnica.org/?lang=en](https://bank.vadnica.org)
+- **Tutorial Site | Učna stran:** [https://vadnica.org/?lang=en](https://vadnica.org)
+- **Blog | Blog:** [https://blog.vadnica.org/individual_article.php?id=106&lang=en&p=1&kat=Vse&s=](https://blog.vadnica.org)
