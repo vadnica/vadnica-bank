@@ -25,24 +25,24 @@ Vsa občutljiva finančna podatka so šifrirana v brskalniku (AES-256) preden se
 
 ## Namestitev / Installation
 
-1. Kloniraj repozitorij:
+1. Clone the repository:
 
 git clone git@github.com:vadnica/vadnica-bank.git
-2. Kopiraj `db.example.php` v `db.php` in vpiši svoje podatke za podatkovno bazo
-3. Zaženi `setup.php` za ustvarjanje tabel
-4. Nastavi SMTP podatke za pošiljanje e-pošte (PHPMailer)
+2. Copy `db.example.php` to `db.php` and enter your database credentials
+3. Run `setup.php` to create the tables
+4. Configure the SMTP settings for sending email (PHPMailer)
 
-## Varnostni model / Security model
+## Security model
 
-Glavno geslo se zgušča (hash) in ni nikoli shranjeno v berljivi obliki. Vsi ostali podatki (transakcije, zneski, opisi) so šifrirani v brskalniku pred pošiljanjem na strežnik. Strežnik deluje zgolj kot shramba šifriranih podatkov.
+The master password is hashed and is never stored in readable form. All other data (transactions, amounts, descriptions) is encrypted in the browser before being sent to the server. The server acts purely as storage for encrypted data.
 
-## Licenca / License
+## License
 
-Ta projekt je licenciran pod [AGPL-3.0](LICENSE).
+This project is licensed under [AGPL-3.0](LICENSE).
 
 ---
 
-Več o projektu na [https://vadnica.org/?lang=en](https://vadnica.org) 🚀
+Learn more about the project at [https://vadnica.org/?lang=en](https://vadnica.org) 🚀
 
 ## Povezave / Links
 
