@@ -1,62 +1,62 @@
-# Prispevanje k projektu Vadnica Bank
+# Contributing to Vadnica Bank
 
-Hvala za zanimanje za prispevanje k projektu!
+Thank you for your interest in contributing to Vadnica Bank!
 
-## Prijava napak
+## Reporting bugs
 
-Preden odpreš novo težavo, preveri, ali podobna težava že obstaja.
+Before opening a new issue, please check whether a similar issue already exists.
 
-Pri prijavi navedi:
+When reporting a bug, include:
 
-- kratek in jasen opis težave,
-- korake za ponovitev,
-- pričakovano vedenje,
-- dejansko vedenje,
-- različico PHP-ja in uporabljeni operacijski sistem,
-- morebitna sporočila o napakah.
+- a short and clear description of the problem,
+- the steps needed to reproduce it,
+- the expected behavior,
+- the actual behavior,
+- your PHP version and operating system,
+- any relevant error messages.
 
-Nikoli ne objavljaj resničnih bančnih podatkov, gesel, ključev ali vsebine datoteke `db.php`.
+Never publish real banking data, passwords, secret keys, or the contents of `db.php`.
 
-## Predlogi in nove funkcije
+## Feature requests
 
-Opiši:
+Please describe:
 
-- kaj želiš dodati,
-- zakaj bi bila funkcija koristna,
-- kako naj bi delovala,
-- morebitne varnostne posledice.
+- what you would like to add,
+- why the feature would be useful,
+- how it should work,
+- any potential security implications.
 
-## Spremembe kode
+## Code changes
 
-1. Ustvari vejo iz `main`:
+1. Create a branch from `main`:
    ```bash
-   git checkout -b ime-spremembe
+   git checkout -b name-of-change
    ```
 
-2. Spremembe preizkusi lokalno.
+2. Test your changes locally.
 
-3. Preveri, da ne dodajaš občutljivih podatkov:
+3. Check that you are not adding sensitive data:
    ```bash
    git status
    ```
 
-4. Ustvari jasen commit:
+4. Create a clear commit:
    ```bash
    git add .
-   git commit -m "Opiši spremembo"
+   git commit -m "Describe the change"
    ```
 
-5. Pošlji vejo na GitHub:
+5. Push the branch to GitHub:
    ```bash
-   git push -u origin ime-spremembe
+   git push -u origin name-of-change
    ```
 
-6. Odpri pull request proti veji `main`.
+6. Open a pull request against the `main` branch.
 
-## Varnost
+## Security
 
-Varnostne ranljivosti ne objavljaj javno kot običajno težavo. Pred prijavo odstrani vse občutljive podatke in uporabi zaseben način za stik z vzdrževalcem projekta.
+Do not publicly report security vulnerabilities as ordinary issues. Before reporting a vulnerability, remove all sensitive information and use a private contact method to reach the project maintainer.
 
-## Licenca
+## License
 
-Prispevki k projektu so objavljeni pod enakimi pogoji kot projekt, v skladu z licenco GNU AGPL v3.
+Contributions to this project are released under the same terms as the project, in accordance with the GNU AGPL v3 license.
